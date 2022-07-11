@@ -9,12 +9,6 @@ export default class extends BaseSchema {
       table.integer('permission_id').unsigned().references('permissions.id')
       table.integer('role_id').unsigned().references('roles.id')
       table.unique(['permission_id', 'role_id'])
-
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
-      table.timestamp('created_at', { useTz: true })
-      table.timestamp('updated_at', { useTz: true })
     })
   }
 

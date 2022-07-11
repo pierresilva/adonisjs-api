@@ -21,6 +21,8 @@ export default class extends BaseSeeder {
     const roleUser = await Role.create({name: 'User'})
 
     await roleAdmin.related('permissions').create({name: 'Access Admin'})
+    await roleUser.related('permissions').create({name: 'Access User'})
+
     await roleAdmin.related('permissions').create({name: 'Users Index'})
     await roleAdmin.related('permissions').create({name: 'Users Store'})
     await roleAdmin.related('permissions').create({name: 'Users Update'})
@@ -36,8 +38,6 @@ export default class extends BaseSeeder {
     await roleAdmin.related('permissions').create({name: 'Permissions Update'})
     await roleAdmin.related('permissions').create({name: 'Permissions Show'})
     await roleAdmin.related('permissions').create({name: 'Permissions Destroy'})
-
-    await roleUser.related('permissions').create({name: 'Access User'})
 
     const admin = await User.query().where('email', 'admin@email.com').first()
     await admin?.related('roles').attach([roleAdmin.id, roleUser.id])
