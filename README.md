@@ -3,7 +3,7 @@
 
 1. `npm install`
 2. `cp .env.example .env`
-3. Update `.env`
+3. Edit `.env` file according your needs
 4. `node ace migration:run`
 5. `node ace db:seed`
 6. `node ace server --watch`
