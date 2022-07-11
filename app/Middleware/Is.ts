@@ -15,7 +15,11 @@ export default class Is {
 
     if (!userIs) {
       response.unauthorized({
-        error: 'You do not have the required role',
+        errors: [
+          {
+            message: 'You do not have the required role',
+          },
+        ],
       })
       return
     }

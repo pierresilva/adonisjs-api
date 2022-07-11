@@ -15,7 +15,11 @@ export default class Can {
 
     if (!userCan) {
       response.unauthorized({
-        error: 'You do not have the required permission',
+        errors: [
+          {
+            message: 'You do not have the required permission',
+          },
+        ],
       })
       return
     }
