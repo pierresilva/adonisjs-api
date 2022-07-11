@@ -35,7 +35,8 @@
       "@adonisjs/i18n",
       "@adonisjs/view",
       "adonis5-scheduler",
-      "@adonisjs/bouncer"
+      "@adonisjs/bouncer",
+      "adonis5-swagger"
     ]
   }
 }

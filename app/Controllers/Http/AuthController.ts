@@ -9,10 +9,41 @@ import Role from 'App/Models/Role'
 
 export default class AuthController {
   /**
-   *
-   * @param request
-   * @param response
-   * @param auth
+   * @swagger
+   * /api/register:
+   *   post:
+   *     tags:
+   *       - Auth
+   *     security: []
+   *     description: Register user in application
+   *     requestBody:
+   *       required: true
+   *       content:
+   *          application/json:
+   *            description: User payload
+   *            schema:
+   *              properties:
+   *                name:
+   *                  type: string
+   *                  example: Test User
+   *                  required: true
+   *                email:
+   *                  type: string
+   *                  example: test.user@email.com
+   *                  required: true
+   *                password:
+   *                  type: string
+   *                  example: 123456
+   *                  required: true
+   *                password_confirmation:
+   *                  type: string
+   *                  example: 123456
+   *                  required: true
+   *     produces:
+   *       - application/json
+   *     responses:
+   *       200:
+   *         description: Success
    */
   public async register ({ request, response, auth }: HttpContextContract) {
     const userSchema = schema.create({
@@ -61,10 +92,34 @@ export default class AuthController {
   }
 
   /**
+   * @swagger
+   * /api/login:
+   *   post:
+   *     tags:
+   *       - Auth
+   *     security: []
+   *     description: Login user in application
+   *     requestBody:
+   *       required: true
+   *       content:
+   *          application/json:
+   *            description: User payload
+   *            schema:
+   *              properties:
+   *                email:
+   *                  type: string
+   *                  example: admin@email.com
+   *                  required: true
+   *                password:
+   *                  type: string
+   *                  example: 123456
+   *                  required: true
+   *     produces:
+   *       - application/json
+   *     responses:
+   *       200:
+   *         description: Success
    *
-   * @param request
-   * @param response
-   * @param auth
    */
   public async login ({ request, response, auth }: HttpContextContract) {
     const userSchema = schema.create({
@@ -97,9 +152,18 @@ export default class AuthController {
   }
 
   /**
-   *
-   * @param response
-   * @param auth
+   * @swagger
+   * /api/logout:
+   *   get:
+   *     tags:
+   *       - Auth
+   *     security: []
+   *     description: Logout user in application
+   *     produces:
+   *       - application/json
+   *     responses:
+   *       200:
+   *         description: Success
    */
   public async logout ({ response, auth }: HttpContextContract) {
     await auth.use('api').revoke()
@@ -110,10 +174,29 @@ export default class AuthController {
   }
 
   /**
-   *
-   * @param request
-   * @param response
-   * @param auth
+   * @swagger
+   * /api/password-reminder:
+   *   post:
+   *     tags:
+   *       - Auth
+   *     security: []
+   *     description: Send email to reset user password
+   *     requestBody:
+   *       required: true
+   *       content:
+   *          application/json:
+   *            description: User payload
+   *            schema:
+   *              properties:
+   *                email:
+   *                  type: string
+   *                  example: admin@email.com
+   *                  required: true
+   *     produces:
+   *       - application/json
+   *     responses:
+   *       200:
+   *         description: Success
    */
   public async passwordReminder ({ request, response }: HttpContextContract) {
     const formSchema = schema.create({
@@ -158,10 +241,33 @@ export default class AuthController {
   }
 
   /**
-   *
-   * @param request
-   * @param response
-   * @param auth
+   * @swagger
+   * /api/password-reset:
+   *   post:
+   *     tags:
+   *       - Auth
+   *     security: []
+   *     description: Reset user password
+   *     requestBody:
+   *       required: true
+   *       content:
+   *          application/json:
+   *            description: User payload
+   *            schema:
+   *              properties:
+   *                password:
+   *                  type: string
+   *                  example: 123456
+   *                  required: true
+   *                password_confirmation:
+   *                  type: string
+   *                  example: 123456
+   *                  required: true
+   *     produces:
+   *       - application/json
+   *     responses:
+   *       200:
+   *         description: Success
    */
   public async passwordReset ({ request, response, auth }: HttpContextContract) {
     const formSchema = schema.create({

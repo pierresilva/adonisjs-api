@@ -3,6 +3,27 @@ import { BaseModel, beforeSave, column, ManyToMany, manyToMany } from '@ioc:Adon
 import { string } from '@ioc:Adonis/Core/Helpers'
 import Permission from './Permission'
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *    Role:
+ *      type: object
+ *      properties:
+ *        id:
+ *          type: number
+ *        name:
+ *          type: string
+ *        slug:
+ *          type: string
+ *        description:
+ *          type: string
+ *        created_at:
+ *          type: string
+ *        updated_at:
+ *          type: string
+ *
+ */
 export default class Role extends BaseModel {
   @column({ isPrimary: true })
   public id: number

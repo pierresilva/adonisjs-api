@@ -9,6 +9,27 @@ import {
 } from '@ioc:Adonis/Lucid/Orm'
 import Role from './Role'
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *    User:
+ *      type: object
+ *      properties:
+ *        id:
+ *          type: number
+ *        name:
+ *          type: string
+ *        email:
+ *          type: string
+ *        remember_me_token:
+ *          type: string
+ *        created_at:
+ *          type: string
+ *        updated_at:
+ *          type: string
+ *
+ */
 export default class User extends BaseModel {
   @column({ isPrimary: true })
   public id: number
