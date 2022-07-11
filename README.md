@@ -11,3 +11,11 @@
 ### Swagger API Docs
 
 `http://127.0.0.1:3333/docs`
+
+### Libraries
+
+#### Sheduler
+https://github.com/reg2005/adonis5-scheduler
+
+#### Swagger
+https://github.com/reg2005/adonis5-swagger
