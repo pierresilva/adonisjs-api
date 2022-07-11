@@ -14,6 +14,13 @@ export default class UsersController {
    *     tags:
    *       - Users
    *     description: List of users. Needed permission "users.index"
+   *     parameters:
+   *       - name: page
+   *         in: query
+   *         required: false
+   *       - name: limit
+   *         in: query
+   *         required: false
    *     produces:
    *       - application/json
    *     responses:

@@ -263,6 +263,10 @@ export default class AuthController {
    *                  type: string
    *                  example: 123456
    *                  required: true
+   *                token:
+   *                  type: string
+   *                  example: 123456
+   *                  required: true
    *     produces:
    *       - application/json
    *     responses:
@@ -289,7 +293,7 @@ export default class AuthController {
     await user.save()
 
     try {
-      const token = await auth.use('api').attempt(user.email, user.password)
+      const token = await auth.use('api').attempt(user.email, request.input('password'))
       return response.ok({
         message: 'OK',
         data: {

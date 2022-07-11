@@ -11,6 +11,13 @@ import Role from 'App/Models/Role'
  *     tags:
  *       - Roles
  *     description: List of roles. Needed permission "roles.index"
+ *     parameters:
+ *       - name: page
+ *         in: query
+ *         required: false
+ *       - name: limit
+ *         in: query
+ *         required: false
  *     produces:
  *       - application/json
  *     responses:

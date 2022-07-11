@@ -12,6 +12,13 @@ export default class PermissionsController {
    *     tags:
    *       - Permissions
    *     description: List of permissions. Needed permission "permissions.index"
+   *     parameters:
+   *       - name: page
+   *         in: query
+   *         required: false
+   *       - name: limit
+   *         in: query
+   *         required: false
    *     produces:
    *       - application/json
    *     responses:
