@@ -8,7 +8,8 @@
 import Env from '@ioc:Adonis/Core/Env'
 import { DatabaseConfig } from '@ioc:Adonis/Lucid/Database'
 
-const databaseConfig: DatabaseConfig = {
+let databaseConfig: DatabaseConfig
+databaseConfig = {
   /*
   |--------------------------------------------------------------------------
   | Connection
@@ -48,7 +49,6 @@ const databaseConfig: DatabaseConfig = {
       healthCheck: false,
       debug: false,
     },
-
   },
 }
 
